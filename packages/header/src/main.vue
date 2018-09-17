@@ -11,6 +11,7 @@
     componentName: 'ElHeader',
 
     props: {
+      // 传了个高度
       height: {
         type: String,
         default: '60px'

@@ -11,6 +11,7 @@
     componentName: 'ElAside',
 
     props: {
+      // 传了个宽度
       width: {
         type: String,
         default: '300px'

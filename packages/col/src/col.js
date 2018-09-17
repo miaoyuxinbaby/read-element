@@ -21,6 +21,7 @@ export default {
   },
 
   computed: {
+    // 向上找到最近的一个Row, 如果没找到就是0
     gutter() {
       let parent = this.$parent;
       while (parent && parent.$options.componentName !== 'ElRow') {
@@ -39,8 +40,10 @@ export default {
     }
 
     ['span', 'offset', 'pull', 'push'].forEach(prop => {
+      // 存在这些prop，即使是 === 0
       if (this[prop] || this[prop] === 0) {
         classList.push(
+          // span和其他prop有不同的样式
           prop !== 'span'
             ? `el-col-${prop}-${this[prop]}`
             : `el-col-${this[prop]}`
@@ -52,9 +55,15 @@ export default {
       if (typeof this[size] === 'number') {
         classList.push(`el-col-${size}-${this[size]}`);
       } else if (typeof this[size] === 'object') {
+        // {span: 4, offset: 4}
+        // props = this.xs = {span: 4, offset: 4}
         let props = this[size];
+        // [span, offset]
         Object.keys(props).forEach(prop => {
           classList.push(
+            // 样式 举例
+            // nospan el-col-xs-span-[span, offset].span
+            // span el-col-xs-[span, offset].span
             prop !== 'span'
               ? `el-col-${size}-${prop}-${props[prop]}`
               : `el-col-${size}-${props[prop]}`
