@@ -7,7 +7,7 @@
     :autofocus="autofocus"
     :type="nativeType"
     :class="[
-      // 各种按钮对应的样式
+      // 各种按钮对应的样式 要拼字符串就用上面这种， 不然就下面那种
       type ? 'el-button--' + type : '',
       buttonSize ? 'el-button--' + buttonSize : '',
       {

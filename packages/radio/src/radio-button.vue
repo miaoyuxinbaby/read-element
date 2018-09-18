@@ -35,6 +35,7 @@
   </label>
 </template>
 <script>
+  // 和radio差不多。样式不同
   import Emitter from 'element-ui/src/mixins/emitter';
 
   export default {

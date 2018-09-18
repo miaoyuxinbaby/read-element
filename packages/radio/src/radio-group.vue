@@ -32,6 +32,7 @@
     props: {
       value: {},
       size: String,
+      // fill 和 textColor不知道干啥用的。
       fill: String,
       textColor: String,
       disabled: Boolean
@@ -47,6 +48,7 @@
     },
 
     created() {
+      // 监听handleChange。 会在radio.vue里派发这个事件
       this.$on('handleChange', value => {
         this.$emit('change', value);
       });
