@@ -15,3 +15,6 @@
 - radio
 - radio-group
 - radio-button
+- checkbox
+- checkbox-group
+- checkbox-button
