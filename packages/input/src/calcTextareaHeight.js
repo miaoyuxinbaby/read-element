@@ -28,6 +28,7 @@ const CONTEXT_STYLE = [
   'box-sizing'
 ];
 
+// 获取样式
 function calculateNodeStyling(targetElement) {
   const style = window.getComputedStyle(targetElement);
 
@@ -67,10 +68,12 @@ export default function calcTextareaHeight(
     contextStyle
   } = calculateNodeStyling(targetElement);
 
+  // 给getComputedStyle设置同样的样式和值
   hiddenTextarea.setAttribute('style', `${contextStyle};${HIDDEN_STYLE}`);
   hiddenTextarea.value = targetElement.value || targetElement.placeholder || '';
 
   let height = hiddenTextarea.scrollHeight;
+  // 结果 最小高度和高度
   const result = {};
 
   if (boxSizing === 'border-box') {
@@ -98,6 +101,7 @@ export default function calcTextareaHeight(
     height = Math.min(maxHeight, height);
   }
   result.height = `${ height }px`;
+  // 得到结果后删除hiddenTextarea
   hiddenTextarea.parentNode && hiddenTextarea.parentNode.removeChild(hiddenTextarea);
   hiddenTextarea = null;
   return result;

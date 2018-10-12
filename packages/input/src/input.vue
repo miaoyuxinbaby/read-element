@@ -201,6 +201,7 @@
           error: 'el-icon-circle-close'
         }[this.validateState];
       },
+      // 合并resize和其他样式
       textareaStyle() {
         return merge({}, this.textareaCalcStyle, { resize: this.resize });
       },
@@ -257,6 +258,7 @@
       },
       resizeTextarea() {
         if (this.$isServer) return;
+        // 这人以前一定是写react的，头疼
         const { autosize, type } = this;
         if (type !== 'textarea') return;
         if (!autosize) {
